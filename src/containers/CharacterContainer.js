@@ -9,12 +9,13 @@ class CharacterContainer extends Component {
     this.state = {
       characters: [],
       selectedCharacter: null,
-      houses: [{name: "Gryfindor"},
+      houses: [{name: "Gryffindor"},
                {name: "Slytherin"},
                {name: "Hufflepuff"},
                {name: "Ravenclaw"}]
     };
     this.handleCharacterSelected = this.handleCharacterSelected.bind(this);
+    this.handleHouseSelected = this.handleHouseSelected.bind(this);
   }
 
   componentDidMount(){
@@ -30,23 +31,28 @@ handleCharacterSelected(index){
 }
 
 handleHouseSelected(index){
+  const reducedArray = this.state.characters.filter(character =>{
+    console.log(this.state.houses[index].name)
+    return character.house === this.state.houses[index].name;
+  })
   const selectedHouse = this.state.houses[index];
   this.setState({selectedHouse: selectedHouse})
+  this.setState({characters: reducedArray})
 }
 
   render(){
     return(
       <div>
        <h2>Harry Potter Characters</h2>
+       <HouseSelector
+        houses={this.state.houses}
+        handleSelected={this.handleHouseSelected}
+       />
         <CharacterSelector
          characters={this.state.characters}
          handleSelected={this.handleCharacterSelected}
         />
         <CharacterDetail character={this.state.selectedCharacter}/>
-        <HouseSelector
-         houses={this.state.houses}
-         handleSelected={this.handleHouseSelected}
-        />
       </div>
     )
   }

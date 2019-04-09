@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CharacterSelector from '../components/CharacterSelector';
+import HouseSelector from '../components/HouseSelector';
 import CharacterDetail from '../components/CharacterDetail';
 
 class CharacterContainer extends Component {
@@ -7,7 +8,11 @@ class CharacterContainer extends Component {
     super(props);
     this.state = {
       characters: [],
-      selectedCharacter: null
+      selectedCharacter: null,
+      houses: [{name: "Gryfindor"},
+               {name: "Slytherin"},
+               {name: "Hufflepuff"},
+               {name: "Ravenclaw"}]
     };
     this.handleCharacterSelected = this.handleCharacterSelected.bind(this);
   }
@@ -24,6 +29,11 @@ handleCharacterSelected(index){
   this.setState({selectedCharacter: selectedCharacter})
 }
 
+handleHouseSelected(index){
+  const selectedHouse = this.state.houses[index];
+  this.setState({selectedHouse: selectedHouse})
+}
+
   render(){
     return(
       <div>
@@ -33,6 +43,10 @@ handleCharacterSelected(index){
          handleSelected={this.handleCharacterSelected}
         />
         <CharacterDetail character={this.state.selectedCharacter}/>
+        <HouseSelector
+         houses={this.state.houses}
+         handleSelected={this.handleHouseSelected}
+        />
       </div>
     )
   }

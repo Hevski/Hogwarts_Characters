@@ -13,7 +13,7 @@ const CharacterSelector = (props) => {
 
 return(
   <select id="character-selector" defaultValue="default" onChange={handleChange}>
-  <option disabled value="default">Choose a ccharacter...</option>
+  <option disabled value="default">Choose a character...</option>
   {options}
 </select>
 )

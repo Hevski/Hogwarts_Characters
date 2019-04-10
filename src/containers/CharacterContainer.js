@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CharacterSelector from '../components/CharacterSelector';
 import HouseSelector from '../components/HouseSelector';
 import CharacterDetail from '../components/CharacterDetail';
+import './Container.css'
 
 class CharacterContainer extends Component {
   constructor(props){

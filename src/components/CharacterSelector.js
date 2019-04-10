@@ -2,19 +2,9 @@ import React from 'react';
 
 const CharacterSelector = (props) => {
 
-
-
-
-  // if(props.filteredCharacters){
     const options = props.filteredCharacters.map((character, index) => {
       return <option value={index} key={index}>{character.name}</option>
     })
-  // } else {
-  //   const options = props.characters.map((character, index) => {
-  //     return <option value={index} key={index}>{character.name}</option>
-  //   })
-  // }
-
 
   function handleChange(event){
     props.handleSelected(event.target.value);

@@ -1,0 +1,13 @@
+body {
+  background-image: url(https://i.imgur.com/VzjolAb.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2 {
+  font-family: fantasy;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}

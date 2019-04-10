@@ -1,9 +1,10 @@
 import React from 'react';
+import './Character.css'
 
 const CharacterDetail = ({character}) => {
   if(!character) return null;
   return (
-    <div>
+    <div className="character">
       <h3>Name: {character.name}</h3>
       <h3>Species: {character.species}</h3>
       <h3>Ancestry: {character.ancestry}</h3>

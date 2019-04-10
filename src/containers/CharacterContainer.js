@@ -30,7 +30,7 @@ class CharacterContainer extends Component {
 }
 
 handleCharacterSelected(index){
-  const selectedCharacter = this.state.characters[index];
+  const selectedCharacter = this.state.filteredCharacters[index];
   this.setState({selectedCharacter: selectedCharacter})
 }
 

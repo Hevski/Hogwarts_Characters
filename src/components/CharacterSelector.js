@@ -22,6 +22,7 @@ const CharacterSelector = (props) => {
 
 return(
   <select id="character-selector" defaultValue="default" onChange={handleChange}>
+  <option disabled selected value> -- select an option -- </option>
   <option disabled value="default">Choose a character...</option>
   {options}
 </select>

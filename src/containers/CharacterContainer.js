@@ -8,6 +8,7 @@ class CharacterContainer extends Component {
     super(props);
     this.state = {
       characters: [],
+      filteredCharacters: [],
       selectedCharacter: null,
       houses: [{name: "Gryffindor"},
                {name: "Slytherin"},
@@ -22,7 +23,10 @@ class CharacterContainer extends Component {
   const url = 'http://hp-api.herokuapp.com/api/characters';
   fetch(url)
   .then(res => res.json())
-  .then(data => this.setState({characters: data}))
+  .then(data => this.setState({filteredCharacters: data}, this.setState({characters: data})))
+
+
+
 }
 
 handleCharacterSelected(index){
@@ -37,7 +41,7 @@ handleHouseSelected(index){
   })
   const selectedHouse = this.state.houses[index];
   this.setState({selectedHouse: selectedHouse})
-  this.setState({characters: reducedArray})
+  this.setState({filteredCharacters: reducedArray})
 }
 
   render(){
@@ -51,6 +55,7 @@ handleHouseSelected(index){
         <CharacterSelector
          characters={this.state.characters}
          handleSelected={this.handleCharacterSelected}
+         filteredCharacters ={this.state.filteredCharacters}
         />
         <CharacterDetail character={this.state.selectedCharacter}/>
       </div>
